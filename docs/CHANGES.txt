@@ -1,0 +1,285 @@
+CHANGES.txt for Defendguin
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+http://www.newbreedsoftware.com/defendguin/
+
+Version 0.0.12
+
+November 5, 2009
+
+CHANGES SINCE 0.0.11
+--------------------
+  Bugfixes:
+    * Sound playing function could segfault.  Fixed.
+      (Example: hitting [Down] in main menu!)
+
+    * Makefile would abort during install if manpage directory
+      didn't exist. Made sure it does.
+
+
+CHANGES SINCE 0.0.10
+--------------------
+  Packaging
+    * Placed documentation into "docs/" subfolder in source tarball release.
+    * Placed sourcefiles into "src/" subfolder in source tarball release.
+
+  Graphics
+    * Converted all BMPs to indexed (256 colors or less), reducing image files
+      by 1MB and removing white artifacts seen on 24bpp and 32bpp displays.
+      (Some color key colors were off, thanks to a Gimp bug.)
+
+    * Made some unloadable BMPs loadable again.  (Opened in Kuickshow,
+      saved as PNG, and then converted back to BMP using Gimp.)
+
+  Interface
+    * Added configuration for joystick buttons and axes to Options screen.
+      (Values stored in config file (e.g., ~/.defendguinrc))
+
+    * Now keeps track of your highest score.
+
+    * Displays labels ("Player 1" and "Player 2") above score/levels on
+      main menu.
+
+    * Displays highest score on main menu.
+
+    * Does not display Player 2 stats on main menu after a 1-player game.
+
+  Internal
+    * Last scores and levels and high score are saved-to and
+      loaded-from ~/.defendguinrc
+
+  Enemies
+    * Points awarded for shooting boss.  Large bonus awarded for beating game.
+
+
+CHANGES SINCE 0.0.9
+-------------------
+  Bugfixes:
+    * Fixed bug where not all aliens would be killed by smartbomb
+      when near the 'seam' of the scrolling map.
+      Oohara Yuuma <oohara@libra.interq.or.jp>
+    * Fixed non-transparent color in one of the ships-flame animation images.
+
+  Interface:
+    * Option screen allows adjusting volume for sound effects and music
+
+  Internal:
+    * Volume options now saved-to and loaded-from ~/.defendguinrc
+
+
+CHANGES SINCE 0.0.8
+-------------------
+  Bugfixes:
+    * Removed reference to "tetris.mid", which was removed in 0.0.8. (Sorry!)
+
+  Installation:
+    * Alter Makefile for install target
+      Christian T. Steigies <christian@steigies.net>
+
+
+CHANGES SINCE 0.0.7
+-------------------
+  Graphics:
+    * Fixed bug with Evil Bill explosion.
+    * Added radioactive symbol to smartbomb icon.
+    * Changed main menu's arrow to a spinning Tux.
+    * Made ship icon (lives display in HUD) nicer looking.
+    * Made mountains look nicer.
+
+  Documentation:
+    * A few touch-ups in README.txt.
+    * Added a man page!
+
+  Interface:
+    * More work on the options screen.
+    * Level and score for each player from the last game are displayed
+      on the title screen at the bottom left and right.
+
+
+CHANGES SINCE 0.0.6
+-------------------
+  Graphics:
+    * Spiffy 'one-up' effect added.
+
+
+CHANGES SINCE 0.0.5
+-------------------
+  Internal:
+    * Two player mode now supported!!!
+
+    * Now calls "Mix_HaltChannel()" to stop all audio before quitting.
+      (Not doing this could cause seg. faults)
+      Andreas Umbach <marvin@tulpe.ards.dataway.ch>
+
+    * rand() calls in SDL_MapRGB() call are now casted to Uint8.
+      Andy Howe <Parasite@cooper-mtn.com>
+
+    * M_PI defined at the top of defendguin.c in case math.h doesn't do it.
+      Andy Howe <Parasite@cooper-mtn.com>
+
+    * Six digit scores are justified correctly.
+
+  Enemies:
+    * Mutants are harder to kill (it was especially easy to kill many of
+      them at once when the planet had been destroyed).
+
+  Documentation:
+    * INSTALL.txt cleaned up.
+
+
+CHANGES SINCE 0.0.4
+-------------------
+  Installation:
+    * "install" target added to "Makefile".
+
+    * RPM ".spec" file created.
+
+    * ".lsm" description created.
+
+  Documentation:
+    * Information on using "make install" and the new Makefile defaults added
+      to INSTALL.txt.
+
+
+CHANGES SINCE 0.0.3
+-------------------
+  Internal:
+    * "random()" and "srandom()" calls changed to "rand()" and "srand()"
+      Phoenix Kokido <kokido@postmark.net>
+
+    * Game prefers 16-bit depth, but prefers native depth over emulated 16-bit!
+      Mattias Engdegard <f91-men@nada.kth.se>
+
+    * Enemies shoot more and more often as levels progress.
+
+    * Penguinoids would remain un-abductable even if their abductor was
+      destroyed.  This caused fewer and fewer penguinoids getting
+      abducted.
+
+    * Evil Bill would disappear and the game would never end if you
+      destroyed all penguins on level 20.  Fixed!
+
+  Enemies:
+    * Boss character no longer easy to kill with an autofire joystick.
+
+    * Mutants can no longer shoot while they're warping in.
+
+    * Mutant and UFO shots come out of the right spot now.
+
+  Sounds:
+    * Alien bullets make noise.
+
+    * Game success music continues to play on title screen after you beat
+      the game (it's a nice song).
+
+  Interface:
+    * Pause feature added.  Press [TAB] or [P] to pause.  Enjoy the
+      pretty effects.
+
+    * Current level displayed above score.
+ 
+
+CHANGES SINCE 0.0.2b
+--------------------
+  Internal:
+    * Evil Bill's size is taken into account when shooting / colliding.
+
+  Interface:
+    * Command-line options now supported.
+
+  Graphics:
+    * Evil Bill graphics changed.
+
+    * Evil Bill starts burning flames when he's really hurt.
+
+  Controls:
+    * Joystick support.
+      Eric Lefevre <lefevre.tmp@wanadoo.fr>
+
+    * Joystick fire button can be used to skip intro screen and to select
+      the current option.
+
+
+CHANCES SINCE 0.0.2
+-------------------
+  * Oops - 0.0.2 wasn't supposed to be released!
+    FPS display turned off, and you start at level 1 (instead of 19!!!)
+
+
+CHANGES SINCE 0.0.1
+-------------------
+  Internal:
+    * Updated for SDL 1.0.0 and SDL mixer library 1.0.0.
+
+    * Fixed bug in alien-creation function.
+
+    * Made lasers go faster (it was too easy before).
+
+    * Tweaked number of aliens to appear at beginning of a level.
+
+    * Stars in background streak the right way all the time.
+
+    * Tweaked how mutants fly around.
+
+  Enemies:
+    * Added boss character.
+
+  Installation:
+    * Makefile changed to use SDL's new "sdl-config" script.
+
+  Documentation:
+    * Files renamed to have ".txt" extensions.
+
+  Graphics:
+    * Ship graphics changed to look like the nice one from loader screen.
+
+
+CHANGES SINCE 0.0.0
+-------------------
+  Display:
+    * Title screen starfield speed tweaked.
+
+    * Level bonus display added.
+
+    * Game over display added.
+
+  Controls:
+    * Thrust key added ([1]).
+
+    * Reverse key added ([2]).
+
+  Documentation:
+    * AUTHORS file updated.
+
+    * README file updated.
+
+  Sound:
+    * Music doesn't stop during the "PRESS A KEY" screen.
+
+    * Music is played during the game.
+
+  Levels:
+    * More aliens materialize if the first batch are killed or approx.
+      30 seconds pass.
+
+    * Baiters materialize if you take too long to complete a level.
+
+    * One-up and extra smart bombs every 10,000 points.
+
+  Internal:
+    * The array of floating score images was never initialized.  Now it is.
+
+    * UFO's will no longer go out of bounds if the planet's destroyed.
+
+    * You can't catch a penguinoid if you just died.
+
+    * UFO's can't shoot while they're beaming in.
+
+    * You can't get hurt by aliens if you collide with them while they're
+      beaming in.
+
+
+INITIAL RELEASE 0.0.0 - November 26, 1999
+---------------------
+  * Initial alpha release.

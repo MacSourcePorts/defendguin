@@ -1,0 +1,16 @@
+TODO for Defendguin
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+http://www.newbreedsoftware.com/defendguin/
+
+Version 0.0.11
+
+January 29, 2006
+
+
+TO DO
+-----
+  * Allow alternate configs for player 1 and player 2 joysticks.
+  * Improve method of configuring joysticks.
+  * Allow joystick config to be provided on the command-line.
