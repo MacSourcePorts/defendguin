@@ -33,6 +33,7 @@
 #define M_PI  3.14159265358979323846  /* mmm... pi... */
 #endif /* #ifndef M_PI */
 
+#import "msputils.h"
 
 /* Image enumerations: */
 
@@ -4462,7 +4463,7 @@ void setup(void)
   
   for (i = 0; i < NUM_IMAGES; i++)
     {
-      image = SDL_LoadBMP(image_names[i]);
+      image = SDL_LoadBMP(getBundlePathSubdirAndFile("Contents/Resources/Data", image_names[i]));
       
       if (image == NULL)
 	{
@@ -4549,7 +4550,7 @@ void setup(void)
       
       for (i = 0; i < NUM_SOUNDS; i++)
 	{
-	  sounds[i] = Mix_LoadWAV(sound_names[i]);
+	  sounds[i] = Mix_LoadWAV(getBundlePathSubdirAndFile("Contents/Resources/Data", sound_names[i]));
 	  if (sounds[i] == NULL)
 	    {
 	      fprintf(stderr,
@@ -4585,7 +4586,7 @@ void setup(void)
       
       /* Load music: */
       
-      title_music = Mix_LoadMUS(MUS_TITLE);
+      title_music = Mix_LoadMUS(getBundlePathSubdirAndFile("Contents/Resources/Data", MUS_TITLE));
       if (title_music == NULL)
         {
           fprintf(stderr,
@@ -4599,7 +4600,7 @@ void setup(void)
       Mix_VolumeMusic(vol_music * (MIX_MAX_VOLUME / 5));
 
 
-      last_music = Mix_LoadMUS(MUS_LAST);
+      last_music = Mix_LoadMUS(getBundlePathSubdirAndFile("Contents/Resources/Data", MUS_LAST));
       if (last_music == NULL)
         {
           fprintf(stderr,
@@ -4611,7 +4612,7 @@ void setup(void)
         }
 
 
-      win_music = Mix_LoadMUS(MUS_WIN);
+      win_music = Mix_LoadMUS(getBundlePathSubdirAndFile("Contents/Resources/Data", MUS_WIN));
       if (win_music == NULL)
         {
           fprintf(stderr,
@@ -4625,7 +4626,7 @@ void setup(void)
       
       for (i = 0; i < NUM_GAME_MUSICS; i++)
         {
-          game_musics[i] = Mix_LoadMUS(game_music_names[i]);
+          game_musics[i] = Mix_LoadMUS(getBundlePathSubdirAndFile("Contents/Resources/Data", game_music_names[i]));
           if (game_musics[i] == NULL)
             {
               fprintf(stderr,

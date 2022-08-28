@@ -14,17 +14,17 @@ CFLAGS=-Wall -O2
 PREFIX=/usr/local
 MAN_PREFIX=$(PREFIX)
 BIN_PREFIX=$(PREFIX)/bin
-DATA_PREFIX=$(PREFIX)/share/defendguin/
+DATA_PREFIX=
 JOY=YES
 
 
 # Other definitions:
 
-SDL_CFLAGS := $(shell sdl-config --cflags)
-SDL_LDFLAGS := $(shell sdl-config --libs) -L/usr/X11R6/lib
+# SDL_CFLAGS := $(shell sdl-config --cflags)
+# SDL_LDFLAGS := $(shell sdl-config --libs) -L/usr/X11R6/lib
 MIXER=-lSDL_mixer
 NOSOUNDFLAG=__SOUND
-CFLAGS=-Wall $(SDL_CFLAGS) -DDATA_PREFIX=\"$(DATA_PREFIX)\" -D$(NOSOUNDFLAG) \
+CFLAGS=-arch $(ARCH) -Wall $(SDL_CFLAGS) -DDATA_PREFIX=\"$(DATA_PREFIX)\" -D$(NOSOUNDFLAG) \
 	-DJOY_$(JOY)
 SDL_LIB=$(SDL_LDFLAGS) $(MIXER)
 
@@ -59,7 +59,7 @@ clean:
 # Main executable:
 
 defendguin:	obj/defendguin.o
-	$(CC) $(CFLAGS) obj/defendguin.o -o defendguin $(SDL_LIB) -lm
+	$(CC) $(CFLAGS) obj/defendguin.o src/msputils.m -o defendguin $(SDL_LIB) -lm
 
 
 # Main object:
