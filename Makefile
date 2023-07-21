@@ -4,7 +4,7 @@
 # bill@newbreedsoftware.com
 # http://www.newbreedsoftware.com/defendguin/
 
-# November 6, 1999 - January 29, 2006
+# November 6, 1999 - May 25, 2020
 
 
 # User-definable stuff:
@@ -58,12 +58,16 @@ clean:
 
 # Main executable:
 
-defendguin:	obj/defendguin.o
-	$(CC) $(CFLAGS) obj/defendguin.o src/msputils.m -o defendguin $(SDL_LIB) -lm
+defendguin:	obj/defendguin.o obj/pixels.o
+	$(CC) $(CFLAGS) obj/defendguin.o obj/pixels.o  src/msputils.m -o defendguin $(SDL_LIB) -lm
 
 
 # Main object:
 
-obj/defendguin.o:	src/defendguin.c
+obj/defendguin.o:	src/defendguin.c src/pixels.h
 	$(CC) $(CFLAGS)	src/defendguin.c -c -o obj/defendguin.o
 
+# Other objects:
+
+obj/pixels.o:	src/pixels.c src/pixels.h
+	$(CC) $(CFLAGS)	src/pixels.c -c -o obj/pixels.o $(EXTRA_LIBS)

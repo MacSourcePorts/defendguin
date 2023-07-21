@@ -4,25 +4,25 @@ by Bill Kendrick
 bill@newbreedsoftware.com
 http://www.newbreedsoftware.com/defendguin/
 
-Version 0.0.11
+Version 0.0.13
 
 
-January 29, 2006
+June 27, 2023
 
 
 DESCRIPTION
 -----------
-  "Defendguin" is based loosely on William's classic arcade game, "Defender."
-  Some recognizable stars in the realm of modern operating systems should be
-  fairly obvious.
+  "Defendguin" is based loosely on William's classic 1981 arcade
+  game, "Defender" designed by Eugene Jarvis and Larry DeMar.
+  (See https://en.wikipedia.org/wiki/Defender_(1981_video_game) and
+  https://www.arcade-museum.com/game_detail.php?game_id=7547)
 
 
 STORY
 -----
-  A certain monopoly-owning bad guy has been cloned hundreds of times by
-  an unknown alien race.  They are now attacking earth, kidnapping little
-  penguinoids and converting them into mutants.  Helping them on their way
-  are some other nasty alien ships, of which there are plenty...
+  Mysterious aliens are now attacking earth, kidnapping little penguinoids
+  and converting them into mutants.  Helping them on their way are
+  some other nasty alien ships, of which there are plenty...
 
 
 DOCUMENTATION
@@ -84,7 +84,7 @@ TITLE SCREEN
   press [ SPACE ], [ ENTER / RETURN ] or a joystick firebutton to
   activate the selected option.
 
-  Note: Once you've played at least one game, the last score for each
+  Note: Once you've played at least one game, the last scores for each
   player are displayed at the bottom left and right corners of the title
   screen.
 
@@ -103,6 +103,10 @@ OPTIONS
   and music in Defendguin, as well as configure a joystick.
   You can choose which fire button fires lasers, and which fires smart bombs,
   and pick which axes for X and Y controls of your ship's movement.
+
+  You may also choose to disable the horizontal controls (by choosing "-1"
+  as the X axis input, and setting the "NO_HAT_X" option to "1"), and
+  configure buttons for thrust and reverse controls.
   
   For example, when using a Sony PlayStation 2 controller via a USB adapter,
   I chose the following settings:
@@ -112,7 +116,18 @@ OPTIONS
     X axis - 4  (the digital directional pad)
     Y axis - 5  (the digital directional pad)
 
-  NOTE:  THE OPTIONS SCREEN IS STILL INCOMPLETE IN THIS RELEASE!
+  And a Nintendo Switch wired (USB) controler, I chose:
+
+    Fire - 1  (the "B" button)
+    Bomb - 2  (the "A" button)
+    X axis - 0  (the left analog stick)
+    Y axis - 1  (the left analog stick)
+
+  The "sensing" section on the right lets you detect which inputs
+  on your controller are being detected.  Press buttons, move sticks (axes),
+  or push d-pads (hats) to determin what Defendguin sees.
+
+  (Note: Defendguin used the Simple DirectMedia Layer library (libSDL).)
 
 
 GAME CONTROLS
@@ -120,33 +135,39 @@ GAME CONTROLS
   The following controls are available:
 
     [ LEFT ARROW KEY ]     -- Point your ship left and thrust left.
-    [ JOYSTICK LEFT ]
+    [ JOYSTICK AXIS LEFT ]
+    [ JOYSTICK HAT LEFT ]
 
     [ RIGHT ARROW KEY ]    -- Point your ship right and thrust right.
-    [ JOYSTICK RIGHT ]
+    [ JOYSTICK AXIS RIGHT ]
+    [ JOYSTICK HAT RIGHT ]
 
   -- or, for hard-core classic Defender fans: --
 
-    [ 1 ]                  -- Thrust in the direction your ship is pointing.
+    [ 1 KEY ]               -- Thrust in the direction your ship is pointing.
+    [ JOYFIRE THRUST ]
 
-    [ 2 ]                  -- Reverse the direction your ship is pointing.
+    [ 2 KEY ]               -- Reverse the direction your ship is pointing.
+    [ JOYFIRE REVERSE ]
 
 
   [ UP ARROW KEY ]       -- Move your ship up.
-  [ JOYSTICK UP ]
+  [ JOYSTICK AXIS UP ]
+  [ JOYSTICK HAT UP ]
 
   [ DOWN ARROW KEY ]     -- Move your ship down.
   [ JOYSTICK DOWN ]
+  [ JOYSTICK HAT DOWN ]
 
-  [ SPACE ]              -- Fire lasers.  (Destroys all enemies in its path)
+  [ SPACE KEY ]          -- Fire lasers.  (Destroys all enemies in its path)
   [ JOYFIRE B ]
 
   [ CTRL / SHIFT / ALT ] -- Fire a smart bomb.  (Destroys all visible enemies)
   [ JOYFIRE A ]
 
-  [ TAB / P ]            -- Pause.
+  [ TAB / P KEY ]        -- Pause / unpause.
       
-  [ ESCAPE ]             -- Quit the game, return to the title menu.
+  [ ESCAPE ]             -- Abort the game in progress, return to the title menu.
 
 
 PLAYING THE GAME
@@ -157,8 +178,8 @@ PLAYING THE GAME
 
   MOVEMENT
   --------
-    If you move left or right, your ship will slide to the opposite side of
-    the screen (so that you can see more ahead of your ship).  As you fly
+    When you reverse direction your ship will slide to the opposite side of
+    the screen, so that you can see more ahead of your ship.  As you fly
     around, your ship remains on one side of the screen, and everything else
     passes by around you.
 
@@ -173,13 +194,16 @@ PLAYING THE GAME
     Miniature versions of your ship, the penguinoids, and the aliens are
     also visible on the radar.
 
+    Note: The planet 'wraps around', if you go far enough in one direction
+    you'll arrive back to where you started.
+
   ALIENS
   ------
     UFO'S
     -----
-      The little green alien ships are the ones which abduct penguinoids.
+      The little alien ships are the ones which abduct penguinoids.
       For the most part, they mind their own business.  They occasionally
-      shoot at you, and are especially agreesive when trying to catch a
+      shoot at you, and are especially agressive when trying to catch a
       penguinoid.
 
       When they start abducting a penguinoid, you'll hear a special sound.
@@ -197,11 +221,12 @@ PLAYING THE GAME
       sound.)  If it doesn't have to fall too far, it will be safe.
 
       Your best bet is to shoot the UFO, and then fly towards the penguinoid
-      to catch him.  When you catch him, he will hold on to your ship
+      to catch them.  When you catch them, they will hold on to your ship
       as you fly around.  Fly down to the mountains and he'll jump off your
       ship and thank you.  (You get more points for doing it this way.)
 
-      Be careful!  You can shoot penguinoids and kill them, too!
+      Be careful!  You can shoot penguinoids and kill them, too -- both in
+      mid-air AND on the ground!
 
     BOMBERS
     -------
@@ -209,10 +234,13 @@ PLAYING THE GAME
       and occasionally spit out mines.  Other than that, just don't run
       into them and shoot them when you get the chance.
 
+      Note: If they go very high in the sky or low to the ground,
+      they'll "wrap around", appearing on the opposite side of the screen.
+
     MINES
     -----
       Bombers drop these spikey grey balls.  They can be in the sky or at
-      ground level, so be careful!  If you get to close, they'll start
+      ground level, so be careful!  If you get too close, they'll start
       flashing.  Note: you can't shoot them!
 
       After floating for a few moments, they disappear with a 'pop.'
@@ -250,6 +278,9 @@ PLAYING THE GAME
       Lasers are unlimited, and you can shoot many at a time by firing
       repeatedly.
 
+      Note: There is currently no built-in autofire option.
+      See TODO.txt for plans.
+
     SMART BOMBS
     -----------
       When you begin the game, you have three smart bombs.  To use one,
@@ -260,6 +291,17 @@ PLAYING THE GAME
       will explode.
 
       Your ship, as well as penguinoids, are not adversely affected.
+
+
+  PLANETARY DESTRUCTION
+  ---------------------
+    If all penguinoids are gone (transformed into mutants or shot by
+    your friendly fire), the entire planet will explode.  For the next
+    few levels, you'll be flying in space, and all enemies that appear
+    in each level will be mutants.
+
+    Every 5th level (5, 10, 15, 20), the planet will return, repopulated
+    with penguinoids.
 
 
   ADVANCING LEVELS
@@ -308,10 +350,4 @@ THE END!
   Enjoy!  Your feedback is welcome via e-mail:
 
     bill@newbreedsoftware.com
-
-
-  Also, feel free to post your comments about (and rating of) Defendguin
-  at the Linux Game Tome website:
-
-    http://www.happypenguin.org/
 

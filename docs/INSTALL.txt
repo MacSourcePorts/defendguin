@@ -4,15 +4,15 @@ by Bill Kendrick
 bill@newbreedsoftware.com
 http://www.newbreedsoftware.com/defendguin/
 
-Version 0.0.9
+Version 0.0.13
 
-January 5, 2002
+May 26, 2020
 
 
 REQUIREMENTS
 ------------
-  "Defendguin" was programmed using the "Simple Direct Media" layer
-  libraries by Sam Lantinga.  This means that the game can
+  "Defendguin" was programmed using the "Simple Direct Media" layer (libSDL)
+  libraries by Sam Lantinga, et al.  This means that the game can
   theoretically run under any environment that the SDL libraries support.
   (Windows, MacOS, BeOS, Linux and other Unixes, and more...)
 
@@ -29,6 +29,7 @@ INSTALLING
 ----------
   -----------------------------------------------------------------
   Note: Read this entire section before you start issuing commands!
+  This is Linux/Unix centric.  Your mileage may vary.
   -----------------------------------------------------------------
 
   Compilation
@@ -62,7 +63,8 @@ INSTALLING
     your system.  The program file will install into "/usr/local/bin/",
     and all of the data files will install into "/usr/local/share/defendguin/".
 
-    For these defaults, you will most likely need to be superuser ("root").
+    For these defaults, you will most likely need to be superuser ("root")
+    (e.g., run "sudo make install").
 
 
   Directories
@@ -104,5 +106,9 @@ INSTALLING
     Make sure the "PREFIX" and "DATA_PREFIX" variables are set the
     same as when you ran "make install"!
 
+    For the defaults, you will most likely need to be superuser ("root")
+    (e.g., run "sudo make uninstall").
+
 
 That's it!
+

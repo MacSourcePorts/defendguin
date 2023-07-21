@@ -4,57 +4,49 @@ by Bill Kendrick
 bill@newbreedsoftware.com
 http://www.newbreedsoftware.com/defendguin/
 
-Version 0.0.9
+Version 0.0.13
 
-January 5, 2002
+June 26, 2023
 
 
 CREDITS
 -------
   Game Software:     Bill Kendrick, <bill@newbreedsoftware.com>
-                     http://www.newbreedsoftware.com/bill/
+                     http://www.newbreedsoftware.com/
+
+  Bug Fixes:         [Various; see CHANGES.txt]
 
   Original Concept:  Eugene Jarvis' "Defender," (c) 1980 Williams.
                      Defender is available for Atari 2600, Atari 5200,
                      Atari 8-bits, Commodore 64, Nintendo NES, PlayStation,
                      Atari Jaguar, and PC's, and probably much, much more!
 
-  Graphics:          Bill Kendrick, using The GIMP
+  Graphics:          Some by Bill Kendrick, using The GIMP, and POVRay
                      http://www.gimp.org/
-
-                     UFO graphics based on an image from Slashdot.org.
-                     http://www.slashdot.org/
 
                      Mountain graphics on loading screen created using
                      xmountains by Stephen Booth <spb@epcc.ed.ac.uk>.
                      http://www.epcc.ed.ac.uk/~spb/xmountains/
 
-                     Bill Gates boss based on a photo from Goofball.com.
-                     http://www.goofball.com/
-                     Used with permission.
+                     Various others; see CHANGES.txt
 
-  Sound Effects:     Different sound effect file sources, including
-                     samples found online for: the original "Defender,"
-                     "Star Trek" (classic series), "Ren & Stimpy,"
-                     "Daffy Duck", "Robocop," an Arnold Shwarzenager
-                     interview, a Bill Gates interview, "The Critic,"
-                     and the game "Star Raiders."
+  Sound Effects:     [Various; see CHANGES.txt]
 
-  Title Music:       "Childpornbust"
-                     by "Nutcase," Sami I Saarnio <saarnio@cc.helsinki.fi>
-                     ftp://ftp.scene.org/pub/music/artists/nutcase/
-                     Used with permission.
+  Title Music:       "fun dancetrack", by evanjones4 [see CHANGES.txt]
+                     Creative Commons 0 License (CCO 1.0 Universal)
+
+  Config Music:      "FB2 Campaign TH OWL » music elevator"
+                     Attribution 4.0 International (CC BY 4.0),
+                     by Jan Ulrich (Stonefree ambience) [see CHANGES.txt]
 
   Game Musics:       "ants", "no!inhibitions", "summerpanic",
                      "little spacetrip" and "easytrip" and
-                     "confusion in fusion" by "Nutcase".
+                     "confusion in fusion"
+                     by "Nutcase" (Sami I Saarnio) <saarnio@cc.helsinki.fi>
                      Used with permission.
 
-                     "blow your mind" by "child of dark," Niko Nyman.
+                     "Musical Mixes » LOUD loopable excerpt of Aminudinaszad's
+                     Freesound #550377.flac", by Timbre,
+                     based on "CYBORG (EDM).mp3" by Aminudinaszad,
+                     Attribution 4.0 International (CC BY 4.0) [see CHANGES.txt]
 
-
-  Testers/Input:     Peter Salzman <p@dirac.org>,
-                     Gabe Rosa <grosa@ucdavis.edu>,
-                     ...and many others
-
-  Bug Fixes:         See CHANGES.txt.
